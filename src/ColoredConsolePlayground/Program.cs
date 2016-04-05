@@ -26,17 +26,17 @@
             ColorConsole.WriteLine(colorToken.Cyan().OnDarkYellow());
             ColorConsole.WriteLine();
 
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Coalesce(ConsoleColor.DarkYellow, null));
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Coalesce(ConsoleColor.DarkYellow));
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Coalesce(null, null));
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Coalesce(null, ConsoleColor.DarkYellow));
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta().OnYellow(), "." }.Coalesce(null, ConsoleColor.DarkYellow));
-            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta().OnYellow(), "." }.Coalesce(ConsoleColor.Black, ConsoleColor.DarkYellow));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Mask(ConsoleColor.DarkYellow, null));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Mask(ConsoleColor.DarkYellow));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Mask(null, null));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta(), "." }.Mask(null, ConsoleColor.DarkYellow));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta().OnYellow(), "." }.Mask(null, ConsoleColor.DarkYellow));
+            ColorConsole.WriteLine(new[] { "You can even use ", "masking".Magenta().OnYellow(), "." }.Mask(ConsoleColor.Black, ConsoleColor.DarkYellow));
 
             ColorToken[] noTokens = null;
             // watch as I do nothing
-            ColorConsole.WriteLine(new[] { new ColorToken(), null }.Coalesce(null, null));
-            ColorConsole.WriteLine(noTokens.Coalesce(ConsoleColor.Red));
+            ColorConsole.WriteLine(new[] { new ColorToken(), null }.Mask(null, null));
+            ColorConsole.WriteLine(noTokens.Mask(ConsoleColor.Red));
 
             var lines = System.IO.File.ReadAllLines(System.IO.Path.Combine(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location), "kiwi.txt"));
             Array.ForEach(
